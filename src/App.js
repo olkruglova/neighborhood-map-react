@@ -5,35 +5,27 @@ import {
   GoogleMap,
   InfoWindow,
   Marker,
-} from 'react-google-maps';
+  Map,
+  GoogleApiWrapper
+} from 'google-maps-react';
 
-const InitialMap = withGoogleMap(props => {
-  
-  return (
-    <GoogleMap
-    ref={props.onMapLoad}
-    defaultZoom={13}
-    defaultCenter={{ lat: 52.406374, lng: 16.925168100000064}}
-  >
-    <Marker
-    key={index}
-    position={Marker.position}
-    onClick={() => props.onMarkerClick(marker)}
-    />
-    </GoogleMap>
-  )
-})
 
-/*import Map from './map';
-
-class App extends Component {
-  render(){
+export class MapContainer extends Component {
+  render() {
     return (
-      <div>
-        <Map />
-      </div>
-    );
+      <Map 
+          google={this.props.google} 
+          zoom={14}
+          
+      >
+       <Marker onClick={this.onMarkerClick}
+                name={'Current location'} />
+      </Map>
+    )
   }
 }
 
-export default App;*/
+export default GoogleApiWrapper({
+  apiKey: ('AIzaSyCPSWk9Gj32S52481URJOAI3kcqgx3KYzk')
+})(MapContainer)
+
