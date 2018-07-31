@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App';
 import registerServiceWorker from './registerServiceWorker';
-import MarkerClick from './components/InfoWindow.js';
 import Sidebar from './components/sidebar.js';
 
 ReactDOM.render(<App />, document.getElementById('map'));
